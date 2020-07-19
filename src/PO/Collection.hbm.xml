@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 注意包名。不写的话下面要写全限定名 -->
+<hibernate-mapping package="PO">
+    <!-- 类名对应表名 -->
+    <class name="PO.Collection" table="Collection">
+<!--     复合主键 -->
+        <composite-id>
+        	<key-property name="id" type="int"></key-property>
+        	<key-property name="mail" type="string"></key-property>
+        </composite-id>
+        <!-- 非主键映射关系，注意类型并不是单纯的java类型也不是数据库类型，而是一种中间类型，注意大小写特别是String在这里开头要小写 -->
+        <property name="collectTime" type="calendar"/>
+    </class>
+</hibernate-mapping>

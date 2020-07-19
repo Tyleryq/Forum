@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 注意包名。不写的话下面要写全限定名 -->
+<hibernate-mapping package="PO">
+    <!-- 类名对应表名 -->
+    <class name="PO.User" table="User">
+        <!-- 主键使用id标签。然后对应属性名与列名 -->
+        <id name="mail" type="string">
+            <!-- 自增长主键不同数据库有不同类型的自增长类型 -->
+            <generator class="assigned"></generator>
+        </id>
+        <!-- 非主键映射关系，注意类型并不是单纯的java类型也不是数据库类型，而是一种中间类型，注意大小写特别是String在这里开头要小写 -->
+        <property name="name" type="string" column="name"/>
+        <property name="pwd" type="string" column="pwd"/>
+        <property name="sex" type="string"/>
+        <property name="city" type="string">
+        	<column name="city" default="'北京'"></column>
+        </property>
+        <property name="VIPRank" type="int">
+        	<column name="VIPRank" default="0"></column>
+        </property>
+        <property name="credit" type="int">
+        	<column name="credit" default="100" not-null="true"></column>
+        </property>
+        <property name="sign" type="string"/>
+        <!-- <set name="posts" table="Post">
+        <key column="mail"></key>
+        <one-to-many class="Post"></one-to-many>
+        </set>-->
+    </class>
+</hibernate-mapping>

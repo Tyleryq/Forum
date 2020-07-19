@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 注意包名。不写的话下面要写全限定名 -->
+<hibernate-mapping package="PO">
+    <!-- 类名对应表名 -->
+    <class name="PO.Message" table="Message">
+        <!-- 主键使用id标签。然后对应属性名与列名 -->
+        <id name="id" type="int" column="id">
+            <!-- 自增长主键不同数据库有不同类型的自增长类型 -->
+            <generator class="increment"></generator>
+        </id>
+        <!-- 非主键映射关系，注意类型并不是单纯的java类型也不是数据库类型，而是一种中间类型，注意大小写特别是String在这里开头要小写 -->
+        <property name="sendTime" type="calendar"/>
+        <property name="postid" type="int"/>
+        <property name="mail" type="string"/>
+        <property name="message" type="string"/>
+        <!--<many-to-one name="user" column="mail" class="User"></many-to-one>-->
+    </class>
+</hibernate-mapping>

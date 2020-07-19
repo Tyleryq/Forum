@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+		"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="service" namespace="/" extends="struts-default">
+		<action name="RegAction" class="services.RegAction">
+			<result name="su">/fly/html/user/login.jsp</result>
+			<!-- /fly/html/user/login.jsp -->
+		</action>
+		
+		<action name="LoginAction" class="services.LoginAction">
+			<result name="su" type="redirect">/fly/html/index.jsp</result>
+			<result name="fa">/fly/html/user/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="services.LogOutAction">
+			<result name="su" type="redirect">/fly/html/index.jsp</result>
+		</action>
+		
+		<action name="PostAction" class="services.PostAction">
+			<result name="su" type="redirect">/fly/html/index.jsp</result>
+			<result name="fa">/fly/html/other/404.html</result>
+		</action>
+		
+		<action name="user_index" class="services.UserIndexAction">
+			<result name="su" type="redirect">/fly/html/user/index.jsp</result>
+			<result name="fa" type="redirect">/fly/html/other/404.html</result>
+		</action>
+		
+		<action name="jie_detail" class="services.JieDetailAction">
+			<result name="su" type="redirect">/fly/html/jie/detail.jsp</result>
+		</action>
+		
+		<action name="collect" class="services.CollectAction">
+			<result name="su" type="redirect">/fly/html/jie/detail.jsp</result>
+		</action>
+		
+		<action name="userinforupdate" class="services.UserInfoUpdateAction">
+			<result name="su" type="redirect">/fly/html/user/set.jsp</result>
+		</action>
+		
+		<action name="userupdatepwd" class="services.UserInfoUpdateAction" method="updatePwd">
+			<result name="su" type="redirect">/fly/html/user/set.jsp#pass</result>
+		</action>
+		
+		<action name="authorhome" class="services.AuthorHomeAction">
+			<result name="su" type="redirect">/fly/html/user/authorhome.jsp</result>
+		</action>
+		
+		<action name="send" class="services.SendAction">
+			<result name="su" type="redirect">/fly/html/jie/detail.jsp</result>
+		</action>
+	</package>
+</struts>
